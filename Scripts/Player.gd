@@ -16,6 +16,7 @@ const JUMP_VELOCITY = 4.5
 const ACCELERATION = 3
 const DEACCELERATION = 8.0
 
+var isBlinking: bool = false
 var SPEED: float = 3.5
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
@@ -151,6 +152,8 @@ func _physics_process(delta):
 	closest_interactable = get_closest_interactable()
 	
 	check_stamina()
+	if isBlinking:
+		get_node("../scene").start_teleport_timer(delta)
 	pass
 	
 func _input(event):
@@ -270,13 +273,14 @@ func blink():
 	open_eyes()
 	
 func close_eyes():
-	
+	isBlinking = true
 	emit_signal("eyes_closed")
 	blink_current_deplete_rate = 0.0
 	blink_timer = max_blink
 	emit_signal("blink_changed", blink_timer)
 
 func open_eyes():
+	isBlinking = false
 	blink_current_deplete_rate = blink_deplete_rate
 	emit_signal("eyes_opened")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://db24n3ets7uc6"]
+[gd_scene load_steps=22 format=3 uid="uid://db24n3ets7uc6"]
 
 [ext_resource type="PackedScene" uid="uid://4sk2yu3uykaf" path="res://Scenes/Rooms/Chamber173.tscn" id="1_lj0jw"]
 [ext_resource type="PackedScene" uid="uid://bj4xwna1y203g" path="res://Scenes/Entities/Player.tscn" id="2_x5b53"]
@@ -16,7 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://ygij6n4uqbvp" path="res://Sounds/Alarm/Alarm2.ogg" id="15_7f16p"]
 [ext_resource type="AudioStream" uid="uid://d33ygqvo05jy8" path="res://Sounds/Ambience/General/Ambient10.ogg" id="15_ekouj"]
 [ext_resource type="PackedScene" uid="uid://wfhq1chfuo4k" path="res://Models/Entities/173/scene.gltf" id="16_dpb6b"]
-[ext_resource type="PackedScene" path="res://Models/Entities/173/scene_collision.tscn" id="17_d136d"]
+[ext_resource type="PackedScene" uid="uid://dtsaoo8b3etti" path="res://Models/Entities/173/scene_collision.tscn" id="17_d136d"]
+[ext_resource type="Script" path="res://Scripts/SCP173.gd" id="17_iqv66"]
 
 [sub_resource type="Environment" id="Environment_ryxqi"]
 tonemap_mode = 3
@@ -102,6 +103,8 @@ bus = &"Ambience"
 
 [node name="scene" parent="." instance=ExtResource("16_dpb6b")]
 transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 46.0867, 4.17926, -16.8805)
+script = ExtResource("17_iqv66")
 
 [node name="scene3" parent="." instance=ExtResource("17_d136d")]
 transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 41.608, 4.09268, -11.4606)
+visible = false
